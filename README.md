@@ -1,0 +1,2 @@
+# data_platforms_Marcus_Ericsson_DE24
+Learning data platforms
