@@ -6,11 +6,13 @@ from quixstreams import Application
 # file path to data
 data_path = Path(__file__).parents[1] / "data"
 
+# read in jokes json through its absolute path
 with open(data_path /"jokes.json" , "r") as file:
     jokes = json.load(file)
     
 # pprint(jokes)
 
+# a from of entry point for interacting with kafka, localhost:9092 is port mapped to broker container
 app = Application(broker_address="localhost:9092", consumer_group= "text-splitter")
 
 
