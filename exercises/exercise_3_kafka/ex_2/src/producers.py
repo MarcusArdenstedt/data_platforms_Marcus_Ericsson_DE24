@@ -27,19 +27,19 @@ def main():
         for order in data:
             # print(order)
             
-            kafka_msg = order_topics.serialize(key= order["products"], value= order)
-            print(f"Input: {kafka_msg.value}")
+            kafka_msg = order_topics.serialize(key= order, value= order)
+            print(f"Input: {kafka_msg.key}\n")
             
-            total = 0
-            for product in order["products"]:
-                print(f"Product: {product["name"]:<20} Quantity: {product["quantity"]:<20} price: {product["price"]}")
-                total += product["quantity"] * product["price"]
             
-            print(f"Total price: {total:.2f}")
+            # total = 0
+            # for product in order["products"]:
+            #     print(f"Product: {product['name']:<20} Quantity {product['quantity']:<20} Price: {product['price']}")
+            #     total += product["quantity"] * product["price"]
+            
+            # print(f"Total price: {total:.2f}")
+            
+            producer.produce(topic= order_topics.name, key= str(kafka_msg.key), value=kafka_msg.value)
         
-
-
-
 
 
 # run this code only when executing this script and not when importing this modul
