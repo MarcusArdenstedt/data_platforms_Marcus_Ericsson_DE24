@@ -20,6 +20,7 @@ def process_order(data):
        total = product["quantity"] * product["price"]
     print(f"Total price: {total}")
 
+sdf = sdf.update(lambda message: print("Output:"))
 sdf = sdf.apply(process_order)
 
 
