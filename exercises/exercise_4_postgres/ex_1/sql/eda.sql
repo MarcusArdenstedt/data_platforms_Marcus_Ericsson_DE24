@@ -29,6 +29,8 @@ SELECT
     COUNT(beslut) AS nr_approved
 FROM 
     data_engineer
+WHERE 
+    LOWER(beslut) = 'beviljad'
 GROUP BY
     utbildningsområde;
 
